@@ -20,7 +20,7 @@ A sample frontend app wrapped in Spring Boot
 You can clone, build, run then access ``localhost:8080`` or change the port.
 
 ```bash
-java -jar ./target/todos-webui-1.0.0.SNAP.jar \
+java -jar ./target/todos-mongoui-1.0.0.SNAP.jar \
   --server.port=whatever
 ``` 
 
