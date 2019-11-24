@@ -2,7 +2,7 @@
 
 A sample frontend app wrapped in Spring Boot
 
-* [Spring Boot](https://spring.io/projects/spring-boot) for app bits, using webflux runtime
+* [Spring Boot](https://spring.io/projects/spring-boot) for app bits
 * [MongoDB](https://mongodb.com) for persistence
 * [Vue.js](https://vuejs.org/) for frontend, inspired by [TodoMVC Vue App](http://todomvc.com/examples/vue/), difference is this one is vendored as a Spring Boot app and calls a backing endpoint (``/todos``)
 
