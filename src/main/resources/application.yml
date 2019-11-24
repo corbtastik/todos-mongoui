@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: 'todos-mongoui'
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: 'Bucky'
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      host: localhost
+      database: todosdb
+      port: 27017
+todos:
+  webui:
+    placeholder: "Time to wash the dog?"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  level:
+    io.todos: TRACE
+
