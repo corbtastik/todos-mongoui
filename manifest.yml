@@ -4,4 +4,4 @@ applications:
   memory: 1G
   path: target/todos-mongoui-1.0.0.SNAP.jar
   env:
-    MONGODB_SRV: 'mongodb+srv://username:password@mongodb.net'
+    MONGODB_SRV: 'mongodb+srv://corbs:changeme@atlas.mongodb.net'

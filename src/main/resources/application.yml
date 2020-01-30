@@ -5,17 +5,20 @@ spring:
     cache: false
   security:
     user:
-      name: 'Bucky'
+      name: 'Mongo User'
   main:
     allow-bean-definition-overriding: true
   data:
     mongodb:
-      host: localhost
-      database: todosdb
+      host: mongodb1.retro.io
       port: 27017
+      database: todosdb
+      authentication-database: admin
+      username: corbs
+      password: changeme
 todos:
   webui:
-    placeholder: "Time to wash the dog?"
+    placeholder: "Talk Next Steps?"
 management:
   endpoints:
     web:
