@@ -27,7 +27,7 @@
             <header>
                 <input id="new-todo" class="new-todo" autofocus autocomplete="off"
                        th:placeholder="${placeholder}"
-                       maxlength="32"
+                       maxlength="128"
                        v-model="newTodo"
                        @keyup.enter="addTodo">
             </header>
@@ -46,7 +46,7 @@
                                v-todo-focus="todo == editedTodo"
                                @blur="doneEdit(todo)"
                                @keyup.enter="doneEdit(todo)"
-                               @keyup.esc="cancelEdit(todo)" maxlength="32">
+                               @keyup.esc="cancelEdit(todo)" maxlength="128">
                     </li>
                 </ul>
             </section>
@@ -93,7 +93,7 @@
     <div v-if="activetab === 3" class="tabcontent">
         <section class="about-content">
             <div>API enabled <a href="https://github.com/corbtastik/todos-mongoui">Todo MongoUI</a></div>
-            <div>using <a href="https://spring.io/projects/spring-boot">Spring Boot</a> + <a href="https://vuejs.org">Vue.js</a> + <a href="https://mongodb.com">MongoDB</a></div>
+            <div>using <a href="https://spring.io/projects/spring-boot">Spring Boot</a> + <a href="https://vuejs.org">Vue.js</a> + <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a></div>
             <div>Inspired <i class="fas fa-heart"></i> by <a href="http://todomvc.com">TodoMVC</a></div>
             <div>
                 <label>Name: </label>{{buildInformation.name}}

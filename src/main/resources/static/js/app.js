@@ -23,23 +23,23 @@
     // ERROR, WARN, INFO, DEBUG, or TRACE
     const Logger = {
         error: function () {
-            const user = "Nacho";
+            const user = "Mongo User";
             this.callApi('ERROR', "UI(" + user + ")|" + arguments[0]);
         },
         warn: function () {
-            const user = "Nacho";
+            const user = "Mongo User";
             this.callApi('WARN', "UI(" + user + ")|" + arguments[0]);
         },
         info: function () {
-            const user = "Nacho";
+            const user = "Mongo User";
             this.callApi('INFO', "UI(" + user + ")|" + arguments[0]);
         },
         debug: function () {
-            const user = "Nacho";
+            const user = "Mongo User";
             this.callApi('DEBUG', "UI(" + user + ")|" + arguments[0]);
         },
         trace: function () {
-            const user = "Nacho";
+            const user = "Mongo User";
             this.callApi('TRACE', "UI(" + user + ")|" + arguments[0]);
         },
         callApi: function(level, line) {
@@ -125,6 +125,34 @@
                 Logger.debug("addTodo|adding new todo");
                 const value = this.newTodo && this.newTodo.trim();
                 if (!value) {
+                    return;
+                }
+                if(value === "@asc") {
+                    Logger.debug("@asc sort ascending");
+                    return;
+                }
+                if(value === "@dsc") {
+                    Logger.debug("@dsc sort descending");
+                    return;
+                }
+                if(value === "@sort") {
+                    Logger.debug("@sort sort flip");
+                    return;
+                }
+                if(value === "@next") {
+                    Logger.debug("@next page");
+                    return;
+                }
+                if(value === "@prev") {
+                    Logger.debug("@prev page");
+                    return;
+                }
+                if(value === "@find") {
+                    Logger.debug("@find [text]");
+                    return;
+                }
+                if(value === "@page") {
+                    Logger.debug("@page [n]");
                     return;
                 }
                 this.createTodo({

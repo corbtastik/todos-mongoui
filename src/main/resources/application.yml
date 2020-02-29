@@ -10,15 +10,10 @@ spring:
     allow-bean-definition-overriding: true
   data:
     mongodb:
-      host: mongodb1.retro.io
-      port: 27017
-      database: todosdb
-      authentication-database: admin
-      username: corbs
-      password: changeme
+      uri: "mongodb://localhost:27017/todosdb"
 todos:
   webui:
-    placeholder: "Talk Next Steps?"
+    placeholder: "Wash the Dog?"
 management:
   endpoints:
     web:
@@ -27,4 +22,3 @@ management:
 logging:
   level:
     io.todos: TRACE
-

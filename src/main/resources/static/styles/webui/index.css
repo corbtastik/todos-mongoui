@@ -27,8 +27,8 @@ body {
     background: #0B243C;
     color: #0B243C;
     min-width: 230px;
-    max-width: 550px;
-    margin: 0 auto;
+    /*max-width: 550px;*/
+    margin: 20px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
@@ -99,6 +99,7 @@ body {
     padding: 16px 16px 16px 60px;
     border: none;
     background: inherit;
+    width: 100%;
 }
 
 .main {

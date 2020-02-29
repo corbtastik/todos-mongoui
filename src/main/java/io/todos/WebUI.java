@@ -42,7 +42,3 @@ public class WebUI implements CommandLineRunner {
         todosRepo.save(Todo.builder().title("Best way to work with data").build());
     }
 }
-
-
-
-

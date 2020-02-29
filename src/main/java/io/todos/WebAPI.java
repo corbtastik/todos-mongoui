@@ -1,5 +1,6 @@
 package io.todos;
 
+import com.github.javafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @RestController
@@ -122,5 +125,21 @@ public class WebAPI {
     @DeleteMapping("/todos/{id}")
     public void delete(@PathVariable String id) {
         todosRepo.deleteById(id);
+    }
+
+    @PostMapping("/faker/{size}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Integer faker(@PathVariable Integer size) {
+        int i = 0;
+        Faker faker = new Faker();
+        for(; i < size; i++) {
+            Todo todo = Todo.builder().title("Call " + faker.name().firstName() + " " + faker.name().lastName()).build();
+            todosRepo.save(todo);
+            LOG.debug("Fake Todo " + todo);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) { }
+        }
+        return i;
     }
 }
