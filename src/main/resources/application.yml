@@ -10,10 +10,10 @@ spring:
     allow-bean-definition-overriding: true
   data:
     mongodb:
-      uri: "mongodb://localhost:27017/todosdb"
+      uri: 'mongodb://localhost:27017/todosdb?retryWrite=true'
 todos:
   webui:
-    placeholder: "Wash the Dog?"
+    placeholder: "Walk the Dog?"
 management:
   endpoints:
     web:
@@ -22,3 +22,4 @@ management:
 logging:
   level:
     io.todos: TRACE
+    org.springframework: OFF
