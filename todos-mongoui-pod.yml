@@ -31,4 +31,4 @@ spec:
         - name: TODOS_WEBUI_PLACEHOLDER
           value: "Milk, Bread, MongoDB?"
         - name: SPRING_DATA_MONGODB_URI
-          value: "mongodb://kube15.retro.io:30100,kube15.retro.io:30200,kube15.retro.io:30300/todosdb?retryWrites=true"
+          value: "mongodb://kube15.retro.io:30188/todosdb?retryWrites=true"

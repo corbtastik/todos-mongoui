@@ -1,6 +1,6 @@
 package io.todos;
 
-import com.github.javafaker.Faker;
+import io.todos.fake.Factory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +11,19 @@ import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -131,9 +137,8 @@ public class WebAPI {
     @ResponseStatus(HttpStatus.CREATED)
     public Integer faker(@PathVariable Integer size) {
         int i = 0;
-        Faker faker = new Faker();
         for(; i < size; i++) {
-            Todo todo = Todo.builder().title("Call " + faker.name().firstName() + " " + faker.name().lastName()).build();
+            Todo todo = Factory.createFake();
             todosRepo.save(todo);
             LOG.debug("Fake Todo " + todo);
             try {

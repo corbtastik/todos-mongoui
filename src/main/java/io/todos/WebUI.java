@@ -1,5 +1,6 @@
 package io.todos;
 
+import io.todos.fake.Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -25,8 +26,12 @@ public class WebUI implements CommandLineRunner {
     @Value("${spring.security.user.name}")
     private String username;
 
-    @Autowired
     private TodosRepo todosRepo;
+
+    @Autowired
+    public WebUI(TodosRepo todosRepo) {
+        this.todosRepo = todosRepo;
+    }
 
     @GetMapping("/")
     public String index(Model model) {
@@ -37,8 +42,8 @@ public class WebUI implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        todosRepo.save(Todo.builder().title("Freedom to Run anywhere").build());
-        todosRepo.save(Todo.builder().title("Put data where you want").build());
-        todosRepo.save(Todo.builder().title("Best way to work with data").build());
+        todosRepo.save(Factory.createFake());
+        todosRepo.save(Factory.createFake());
+        todosRepo.save(Factory.createFake());
     }
 }

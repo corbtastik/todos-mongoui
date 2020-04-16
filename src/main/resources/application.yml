@@ -10,7 +10,7 @@ spring:
     allow-bean-definition-overriding: true
   data:
     mongodb:
-      uri: 'mongodb://localhost:27017/todosdb?retryWrite=true'
+      uri: 'mongodb://localhost:27017/todosdb?retryWrites=true'
 todos:
   webui:
     placeholder: "Walk the Dog?"
